@@ -1,0 +1,82 @@
+public class Coche{
+   String color;  //String= dato de tipo texto
+   String marca;
+   int ruedas;    //Int= dato de tipo numero entero
+   int largo;
+   int ancho;
+   int peso_plataforma;
+   int peso_total;
+   boolean asientos_cuero, climatizador;    //Boolean=dato de tipo "true o false", es decir "si o no"
+   
+  public Coche(){   //metodo contructor
+      ruedas=4;
+      largo=2000;
+      ancho=300;
+      peso_plataforma=500;
+  }      
+  public String dime_datos_generales(){   //metodo GETTER devuelve informacion
+      return "La plataforma del vehiculo tiene " + ruedas + " ruedas "
+              + ".Mide " + largo/1000 + " metros con u ancho de "
+              + ancho + " cm y un peso de plataforma de " 
+              + peso_plataforma + " kg.";
+  }
+  public void establece_marca(String marca_coche){    //metodo SETTER no devuelve nada, modifica la informacion
+      marca=marca_coche;
+  }
+  public String dime_marca(){   //getter
+      return "La marca del coche es " + marca;
+  }
+  public void establece_color(){    //setter
+      color=color_coche;
+  }
+  public String dime_color(){   //getter
+      return "El color del coche es " + color;
+  }
+  public void configura_asientos(String asientos_cuero){    //SETTER
+      if(asientos_cuero.equalsIgnoreCase("si")){    //EqualsIgnoreCase= esta funcion nos indica que aceptara las respuestas sea como sea el texto de tamaño siempre y cuando cuencida el texto(Si, sI, si, SI)
+          this.asientos_cuero=true;
+      }else{
+          this.asientos_cuero=false;
+      }
+  }
+  public String dime_asientos(){    //GETTER
+      if(asientos_cuero==true){   //Instruccion If/else nos sirve para darle varias opciones a elegir al programa, es decir, que imprima una respuesta en la consola dependiento de lo que selecciones.
+          return "El coche tiene asientos de cuero";
+      }else{
+          return "El coche tiene asientos de serie";
+      }
+  }
+  public void configura_climatizador(String climatizador){    //SETTER
+      if(climatizador.equalsIgnoreCase("si")){
+          this.climatizador=true;
+      }else{
+          this.climatizador=false;
+      }
+  }
+  public String dime_climatizador(){
+      if(climatizador==true){
+          return "El coche incorpora climatizador";
+      }else{
+          return "El coche lleva aire acondicionado";
+      }
+  }
+  public String dime_peso_coche(){    //GETTER Y SETTER
+      int peso_carroceria=500;
+      peso_total=peso_plataforma + peso_carroceria;
+      if(asientos_cuero==true){
+          peso_total=peso_total + 50;
+      }if(climatizador==true){
+          peso_total=peso_total + 20;
+      }
+      return "El peso del coche es " + peso_total;
+  }
+  public int precio_coche(){    //GETTER
+      int precio_final=10000;
+      if(asientos_cuero==true){
+          precio_final+=2000;
+      }if(climatizador==true){
+          precio_final+=1500;
+      }
+      return precio_final;
+  }
+}
